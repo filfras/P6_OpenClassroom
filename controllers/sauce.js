@@ -158,17 +158,30 @@ exports.likesAndDislikes = (req, res, next) => {
         console.log('User Disliked Cancelled!')
       }
     }
-  })
 
-  Sauce.updateOne({ _id: req.params.id }, updateSauce)
-    .then(() => {
-      res.status(201).json({
-        message: 'Sauce updated successfully!',
+    Sauce.updateOne({ _id: req.params.id }, updateSauce)
+      .then(() => {
+        res.status(201).json({
+          message: 'Sauce updated successfully!',
+        })
       })
-    })
-    .catch((error) => {
-      res.status(400).json({
-        error: error,
+      .catch((error) => {
+        res.status(400).json({
+          error: error,
+        })
       })
-    })
+  })
 }
+
+/*
+function likesFunction => (sauce) {
+  let updateSauce = {
+    likes: sauce.likes,
+    usersLiked: sauce.usersLiked,
+  }
+  
+  Sauce.updateOne(
+      updateSauce.usersLiked.push(req.body.userId)
+      updateSauce.likes = updateSauce.usersLiked.length
+  )
+}*/
