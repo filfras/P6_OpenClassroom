@@ -172,16 +172,3 @@ exports.likesAndDislikes = (req, res, next) => {
       })
   })
 }
-
-/*
-function likesFunction => (sauce) {
-  let updateSauce = {
-    likes: sauce.likes,
-    usersLiked: sauce.usersLiked,
-  }
-  
-  Sauce.updateOne(
-      updateSauce.usersLiked.push(req.body.userId)
-      updateSauce.likes = updateSauce.usersLiked.length
-  )
-}*/
