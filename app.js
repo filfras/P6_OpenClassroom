@@ -1,5 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
+require('dotenv').config() //read our enviromental file and save them  through process.env
 
 const sauceRoutes = require('./routes/sauces')
 const userRoutes = require('./routes/user')
@@ -22,7 +23,7 @@ app.use((req, res, next) => {
 
 mongoose
   .connect(
-    'mongodb+srv://filipa:passwordforpojectone@project-one.nlzh79e.mongodb.net/?retryWrites=true&w=majority',
+    `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@project-one.nlzh79e.mongodb.net/?retryWrites=true&w=majority`,
   )
   .then(() => {
     console.log('Successfully connected to MongoDB Atlas!')

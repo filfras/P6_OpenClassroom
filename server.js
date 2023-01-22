@@ -1,8 +1,7 @@
 const http = require('http')
 
-require('dotenv').config() //read our enviromental file and save them  through process.env
-
 const app = require('./app')
+require('dotenv').config() //read our enviromental file and save them  through process.env
 
 const normalizePort = (val) => {
   const port = parseInt(val, 10)
@@ -16,7 +15,7 @@ const normalizePort = (val) => {
   return false
 }
 
-let port = process.env.PORT
+const port = normalizePort(process.env.PORT || '3000')
 let host = process.env.HOST
 
 app.set('port', port)
