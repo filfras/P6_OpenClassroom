@@ -1,6 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-require('dotenv').config() //read our enviromental file and save them  through process.env
+require('dotenv').config()
 
 const sauceRoutes = require('./routes/sauces')
 const userRoutes = require('./routes/user')
@@ -33,12 +33,10 @@ mongoose
     console.error(error)
   })
 
-//handle POST requests; app.use intercepts json types
 app.use(express.json())
 
 app.use('/images', express.static(path.join(__dirname, 'images')))
 app.use('/api/sauces', sauceRoutes)
 app.use('/api/auth', userRoutes)
 
-//to access outside this file
 module.exports = app

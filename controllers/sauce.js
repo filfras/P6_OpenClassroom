@@ -101,7 +101,6 @@ exports.deleteSauce = (req, res, next) => {
 
   Sauce.findOne({ _id: req.params.id }).then((sauce) => {
     const filename = sauce.imageUrl.split('/images/')[1]
-    //fs'  unlink()  method lets you delete a file from the file system.
     fs.unlink('images/' + filename, () => {
       Sauce.deleteOne({ _id: req.params.id })
         .then(() => {
